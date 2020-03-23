@@ -2,18 +2,19 @@
 
 A simple web app that shows you the stats of valid Apex Legends accounts.
 
-# Table of Contents
-- [Apex Stats](#apex-stats)
-- [Table of Contents](#table-of-contents)
-- [Technologies](#technologies)
-- [Setup](#setup)
+## Table of Contents
 
-# Technologies
+- [Apex Stats](#apex-stats)
+  - [Table of Contents](#table-of-contents)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
+
+## Technologies
 
 * Python 3.6.9
 * Django 3.0.4
 
-# Setup
+## Setup
 
 1. Clone this repo using
     ```

@@ -1,0 +1,58 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #CD0C15;
+  color: #E5DED8;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 5rem auto 5rem;
+  grid-template-rows: 5rem auto;
+  grid-template-areas: 'header header header' '.      main   .';
+  row-gap: .5rem;
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+nav {
+  width: 100vw;
+  height: 5rem;
+  background-color: #E5DED8;
+}
+
+.nav__brand {
+  display: flex;
+  justify-content: center;
+  max-height: 100%;
+}
+
+.nav__brand--img {
+  width: 10rem;
+  height: 5rem;
+}

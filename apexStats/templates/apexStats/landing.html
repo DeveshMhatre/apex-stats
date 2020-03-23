@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'apexStats/css/landing.css' %}">
+{% endblock stylesheet %}
+
+{% block title %}
+Apex Legends Stats Tracker
+{% endblock title %}
+
+{% block content %}
+
+<div class="main-container">
+
+    <div class="form-container" role="form">
+        <form method="POST">
+        {% csrf_token %}
+            {% for field in form %}
+                <p class="form__input">
+                    {{ field.label }}
+                    {{ field }}
+                </p>
+            {% endfor %}
+            <button class="form__input--btn" type="submit">Lookup Stats</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock content %}
