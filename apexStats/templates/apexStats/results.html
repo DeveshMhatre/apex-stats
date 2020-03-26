@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'apexStats/css/results.css' %}">
+{% endblock stylesheet %}
+
+{% block title %}
+Stats of {{ player }}
+{% endblock title %}
+
+{% block content %}
+
+<div class="main-container">
+
+    <div class="stats">
+
+        <h3 class="stats__heading">
+            [{{ platform }}] {{ player }}
+        </h3>
+
+        <img class="stats__banner" src="{{ banner }}" alt="Image of active legend">
+
+        <p class="stats__legend--2">Level</p>
+        <p class="stats__value--2">{{ level }}</p>
+        <p class="stats__legend--3">Lifetime Kills</p>
+        <p class="stats__value--3">{{ kills }}</p>
+        <p class="stats__legend--4">Season 4 Wins</p>
+        <p class="stats__value--4">{{ wins }}</p>
+        <p class="stats__legend--5">Active Legend</p>
+        <p class="stats__value--5">{{ legend }}</p>
+        <p class="stats__legend--6">Kills as {{ legend }}</p>
+        <p class="stats__value--6">{{ killsAs }}</p>
+        <p class="stats__legend--7">Season 4 Wins as {{ legend }}</p>
+        <p class="stats__value--7">{{ winsAs }}</p>
+    
+    </div>
+
+</div>
+
+{% endblock content %}
