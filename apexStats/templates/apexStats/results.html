@@ -26,14 +26,16 @@ Stats of {{ player }}
         <p class="stats__value--2">{{ level }}</p>
         <p class="stats__legend--3">Lifetime Kills</p>
         <p class="stats__value--3">{{ kills }}</p>
-        <p class="stats__legend--4">Season 4 Wins</p>
-        <p class="stats__value--4">{{ wins }}</p>
+        <p class="stats__legend--4">Lifetime Damage Dealt</p>
+        <p class="stats__value--4">{{ damage }}</p>
         <p class="stats__legend--5">Active Legend</p>
         <p class="stats__value--5">{{ legend }}</p>
         <p class="stats__legend--6">Kills as {{ legend }}</p>
         <p class="stats__value--6">{{ killsAs }}</p>
-        <p class="stats__legend--7">Season 4 Wins as {{ legend }}</p>
-        <p class="stats__value--7">{{ winsAs }}</p>
+        <p class="stats__legend--7">Damage Dealt as {{ legend }}</p>
+        <p class="stats__value--7">{{ damageAs }}</p>
+
+        <a class="stats__btn" href="{% url 'apex:landing' %}">Go back</a>
     
     </div>
 

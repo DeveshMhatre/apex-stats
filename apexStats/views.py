@@ -31,15 +31,15 @@ def tracker_results(request):
 
     stats = response.json()['data']
 
-
     context = {}
 
     if stats['platformInfo']['platformSlug'] == 'origin':
         context['platform'] = 'PC'
-    elif stats['platformInfo']['platformSlug'] == 'xb1':
+    elif stats['platformInfo']['platformSlug'] == 'xbl':
         context['platform'] = 'Xbox One'
     else:
         context['platform'] = 'PS4'
+
     player = stats['platformInfo']['platformUserId']
     context['player'] = player
     banner = stats['segments'][1]['metadata']['tallImageUrl']
@@ -48,17 +48,20 @@ def tracker_results(request):
     context['legend'] = legend
     level = stats['segments'][0]['stats']['level']['displayValue']
     context['level'] = level
-    if stats['segments'][0]['stats']['kills']['displayValue']:
-        kills = stats['segments'][0]['stats']['kills']['displayValue']
-        context['kills'] = kills
-    if stats['segments'][0]['stats']['season4Wins']['displayValue']:
-        wins = stats['segments'][0]['stats']['season4Wins']['displayValue']
-        context['wins'] = wins
-    if stats['segments'][1]['stats']['kills']['displayValue']:
-        killsAs = stats['segments'][1]['stats']['kills']['displayValue']
-        context['killsAs'] = killsAs
-    if stats['segments'][1]['stats']['season4Wins']['displayValue']:
-        winsAs = stats['segments'][1]['stats']['season4Wins']['displayValue']
-        context['winsAs'] = winsAs
+
+    kills = stats['segments'][0]['stats'].get('kills')
+    get_stats(kills, 'kills', context)
+    damage = stats['segments'][0]['stats'].get('damage')
+    get_stats(damage, 'damage', context)
+    killsAs = stats['segments'][1]['stats'].get('kills')
+    get_stats(killsAs, 'killsAs', context)
+    damageAs = stats['segments'][1]['stats'].get('damage')
+    get_stats(damageAs, 'damageAs', context)
 
     return render(request, 'apexStats/results.html', context)
+
+def get_stats(element, criteria, context):
+    if element:
+        context[criteria] = element['displayValue']
+    else:
+        context[criteria] = 0

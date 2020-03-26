@@ -2,9 +2,9 @@ from django import forms
 
 class StatForm(forms.Form):
     PLATFORMS = (
-        ('origin', 'PC'),
-        ('xb1', 'Xbox'),
-        ('psn', 'PS4'),
+        (5, 'PC'),
+        (1, 'Xbox'),
+        (2, 'PS4'),
     )
 
     platform = forms.ChoiceField(
