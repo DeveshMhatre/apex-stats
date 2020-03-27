@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 import requests
 
@@ -28,6 +29,11 @@ def tracker_results(request):
         f"{TRACKER_SITE}/{request.session['platform']}/{request.session['alias']}",
         headers={'TRN-Api-Key': TRACKER_SITE_AUTH}
     )
+
+    if response.json().get('errors'):
+        messages.error(request, f"{response.json()['errors'][0]['message']} Please check your alias and try again.")
+        return redirect('apex:landing')
+
 
     stats = response.json()['data']
 

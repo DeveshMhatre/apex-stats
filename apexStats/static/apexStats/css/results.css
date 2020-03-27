@@ -1,5 +1,7 @@
 .main-container {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: center;
   justify-content: center;
   height: 100%;
 }
@@ -8,6 +10,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(7, 5rem);
+  -webkit-box-align: center;
   align-items: center;
   width: 50rem;
   min-height: 50vh;
